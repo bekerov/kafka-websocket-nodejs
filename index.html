@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>Kafka Websocket minimal example</title>
+</head>
+<body>
+
+<ul id="events"></ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+        let socket = io();
+
+        socket.on('kafka_event', function (message) {
+            $('#events').append($('<div>').text(message));
+        });
+    });
+</script>
+</body>
+</html>
